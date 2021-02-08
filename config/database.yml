@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: abeleon
+  password: showmethecode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: hiptime_development
+
+  
+test:
+  <<: *default
+  database: hiptime_test
+
+
+production:
+  <<: *default
+  database: hiptime_production
+  username: hiptime
+  password: <%= ENV['HIPTIME_DATABASE_PASSWORD'] %>
