@@ -1,0 +1,9 @@
+<div class="row w-100 d-flex justify-content-center mt-5">
+    <div class="col-md-10 bg-light p-3">
+        <h1> <%= @item.title %> </h1>
+        <p> <%= @item.description %> </p>
+        <%= link_to  "Home", root_path, class:"btn btn-info" %>
+        <%= link_to "Edit", edit_item_path(@item), class:"btn btn-warning" %>
+        <%= link_to "Delete", item_path(@item), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-danger" %>
+    </div>
+</div>
