@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
 before_action :find_item, only: [:edit, :show, :update, :destroy]
+before_action :authenticate_user!
     def index
         @items = Item.all.order(created_at: :desc)
     end
@@ -20,15 +21,15 @@ before_action :find_item, only: [:edit, :show, :update, :destroy]
     end
 
     def edit
-        
+
     end
 
     def show
-        
+
     end
 
     def update
-        
+
         if @item.update(item_params)
           flash[:success] = "Object was successfully updated"
           redirect_to @item
@@ -39,7 +40,7 @@ before_action :find_item, only: [:edit, :show, :update, :destroy]
     end
 
     def destroy
-        
+
         if @item.destroy
             flash[:success] = 'Object was successfully deleted.'
             redirect_to items_path
@@ -48,7 +49,7 @@ before_action :find_item, only: [:edit, :show, :update, :destroy]
             redirect_to @item
         end
     end
-    
+
     private
 
     def find_item
@@ -57,6 +58,6 @@ before_action :find_item, only: [:edit, :show, :update, :destroy]
 
     def item_params
         params.require(:item).permit(:title,:description)
-    end    
-    
+    end
+
 end
