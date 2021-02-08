@@ -11,8 +11,33 @@
   </head>
 
   <body>
-    <header>
-    </header>
+      <nav class="navbar navbar-default bg-light fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <%= link_to "Hiptime", root_path, class:"navbar-brand" %>
+          </div>
+          <ul class="nav navbar-nav navbar-right">
+            <% if current_user.present? %>
+              <li>
+                <%= link_to "Sign out", destroy_user_session_path, method: :delete%>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to "Sign in", new_user_session_path%>
+              </li>
+              <li>
+                <%= link_to "Sign up", new_user_registration_path%>
+              </li>
+            <% end %>
+          </ul>
+          <% if user_signed_in? %>
+            <%= link_to "Create new item", new_item_path, class: "navbar-text navbar-link" %>
+          <% end %>
+        </div>
+      </nav>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <main class="container">
       <%= yield %>
     </main>
