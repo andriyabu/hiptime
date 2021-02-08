@@ -2,15 +2,15 @@ class ItemsController < ApplicationController
 before_action :find_item, only: [:edit, :show, :update, :destroy]
 before_action :authenticate_user!
     def index
-        @items = Item.all.order(created_at: :desc)
+        @items = Item.where(user_id: current_user.id).order(created_at: :desc)
     end
 
     def new
-        @item = Item.new
+        @item = current_user.item.build
     end
 
     def create
-        @item = Item.new(item_params)
+        @item = current_user.item.build(item_params)
         if @item.save
           flash[:success] = "Object successfully created"
           redirect_to @item
@@ -57,7 +57,7 @@ before_action :authenticate_user!
     end
 
     def item_params
-        params.require(:item).permit(:title,:description)
+        params.require(:item).permit(:title,:description,:user_id)
     end
 
 end
