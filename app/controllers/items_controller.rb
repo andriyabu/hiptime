@@ -27,9 +27,11 @@ before_action :find_item, only: [:edit, :show, :update, :destroy]
     end
 
     def show
-
     end
 
+    def complete
+        @item.update_attributes(:completed_at,Time.now)
+        redirect_to root_path
     def update
 
         if @item.update(item_params)
