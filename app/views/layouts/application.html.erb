@@ -11,28 +11,27 @@
   </head>
 
   <body>
-      <nav class="navbar navbar-default bg-light fixed-top">
-        <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid d-flex justify-content-between">
           <div class="navbar-header">
             <%= link_to "Hiptime", root_path, class:"navbar-brand" %>
           </div>
           <ul class="nav navbar-nav navbar-right">
             <% if current_user.present? %>
-              <li>
-                <%= link_to "Sign out", destroy_user_session_path, method: :delete%>
+              <li class="nav-item">
+                <%= link_to "Create new item", new_item_path, class: "btn btn-info" %>
+                <%= link_to "Sign out", destroy_user_session_path, method: :delete, class:"btn btn-danger"%>
               </li>
             <% else %>
-              <li>
-                <%= link_to "Sign in", new_user_session_path%>
+              <li class="nav-item mr-2">
+                <%= link_to "Sign in", new_user_session_path, class:"btn btn-success"%>
               </li>
-              <li>
-                <%= link_to "Sign up", new_user_registration_path%>
+              <li class="nav-item">
+                <%= link_to "Sign up", new_user_registration_path, class:"btn btn-primary"%>
               </li>
             <% end %>
           </ul>
-          <% if user_signed_in? %>
-            <%= link_to "Create new item", new_item_path, class: "navbar-text navbar-link" %>
-          <% end %>
+
         </div>
       </nav>
 
