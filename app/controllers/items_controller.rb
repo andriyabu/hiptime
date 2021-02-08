@@ -1,8 +1,10 @@
 class ItemsController < ApplicationController
 before_action :find_item, only: [:edit, :show, :update, :destroy]
-before_action :authenticate_user!
+# before_action :authenticate_user!
     def index
-        @items = Item.where(user_id: current_user.id).order(created_at: :desc)
+      if user_signed_in?
+        @items = Item.where(:user_id => current_user.id).order(created_at: :desc)
+      end
     end
 
     def new
