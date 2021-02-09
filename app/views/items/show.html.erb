@@ -3,7 +3,7 @@
         <h1> <%= @item.title %> </h1>
         <p> <%= @item.description %> </p>
         <%= link_to  "Home", root_path, class:"btn btn-info" %>
-        <%= link_to "Edit", edit_item_path(@item), class:"btn btn-warning" %>
-        <%= link_to "Delete", item_path(@item), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-danger" %>
+        <%= link_to "Edit", edit_item_path(@item), class:"btn btn-warning-two" %>
+        <%= link_to "Delete", item_path(@item), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-danger-two" %>
     </div>
 </div>

@@ -32,8 +32,8 @@ before_action :find_item, only: [:edit, :show, :update, :destroy]
     def complete
         @item.update_attributes(:completed_at,Time.now)
         redirect_to root_path
+    end
     def update
-
         if @item.update(item_params)
           flash[:success] = "Object was successfully updated"
           redirect_to @item

@@ -8,10 +8,10 @@
     <div class="col w-100 bg-light p-3 mt-2">
       <h1><%= item.title %></h1>
       <p><%= item.description %></p>
-      <%= link_to "Show", item_path(item), class:"btn btn-info" %>
+      <%= link_to "Show", item_path(item), class:"btn btn-danger-two" %>
     </div>
     <% end %>
-    <%= link_to "New Items", new_item_path, class:"btn btn-primary mt-3" %>
+    <%= link_to "New Items", new_item_path, class:"btn btn-primary-two mt-3" %>
   </div>
 <% else %>
   <%= render "welcome" %>

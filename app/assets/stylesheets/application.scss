@@ -15,3 +15,45 @@
  */
 
  @import "bootstrap";
+
+ body {
+   font-family: 'Lato', sans-serif;
+   background-color: #f9e8d4;
+ }
+
+ .jumbotron {
+   text-align: center;
+ }
+
+ a {
+   color: darken(#e7e7e7, 70%);
+ }
+
+ .navbar {
+   font-family: 'Lato', sans-serif;
+   text-transform: uppercase;
+ }
+
+ .navbar-expand-lg {
+   background: #ff9292;
+ }
+
+.btn-danger-two {
+   background:  #ff9292;
+   color: #fff;
+}
+
+.btn-primary-two {
+  background: #1687a7;
+  color: white;
+}
+
+.btn-success-two {
+  background: #00af91;
+  color: #fff;
+}
+
+.btn-warning-two {
+  background: #ffc75f;
+  color: #fff;
+}
