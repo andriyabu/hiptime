@@ -5,6 +5,6 @@ class Item < ApplicationRecord
   validates :user_id, presence: true
 
   def completed?
-    !completed_at.blank
+    !completed_at.blank?
   end
 end

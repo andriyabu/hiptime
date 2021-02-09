@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-before_action :find_item, only: [:edit, :show, :update, :destroy]
+before_action :find_item, only: [:edit, :show, :update, :destroy, :complete]
 # before_action :authenticate_user!
     def index
       if user_signed_in?
@@ -30,7 +30,11 @@ before_action :find_item, only: [:edit, :show, :update, :destroy]
     end
 
     def complete
-        @item.update_attributes(:completed_at,Time.now)
+        if @item.completed?
+            @item.update_attribute(:completed_at,nil)
+        else
+          @item.update_attribute(:completed_at,Time.now)
+        end
         redirect_to root_path
     end
     def update
